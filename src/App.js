@@ -7,7 +7,8 @@ function App() {
   useEffect(() => {
     (async () => {
       const response = await fetch('https://rslfilho-dia-28-1-back.herokuapp.com/');
-      setText(response.data.text);
+      const { data: { text: message } } = await response.json(); 
+      setText(message);
     })()
   }, [])
   return (
